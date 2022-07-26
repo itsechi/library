@@ -1,12 +1,21 @@
 const title = document.querySelector('#book-title');
 const author = document.querySelector('#book-author');
 const pages = document.querySelector('#book-pages');
-const addBtn = document.querySelector('button');
+const addBtn = document.querySelector('#add-book');
 const read = document.querySelector('#book-status');
-const display = document.querySelector('.display');
+const cardContainer = document.querySelector('.card-container');
+const openFormBtn = document.querySelector('#open-form');
+const form = document.querySelector('.form-modal');
+const overlay = document.querySelector('.form-overlay');
 let myLibrary = [];
 
-addBtn.addEventListener('click', addBookToLibrary);
+// show form
+openFormBtn.addEventListener('click', () => form.classList.remove('hidden'));
+// close form
+overlay.addEventListener('click', closeForm);
+function closeForm() {
+  form.classList.add('hidden');
+}
 
 // create a new book
 function Book(title, author, pages, read) {
@@ -14,29 +23,39 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function () {
-    return `${title} by ${author}, ${pages} pages, ${
-      read ? 'have read' : 'not read yet'
-    }`;
-  };
 }
 
 // add book to myLibrary array
-function addBookToLibrary() {
+addBtn.addEventListener('click', addBookToLibrary);
+function addBookToLibrary(e) {
+  e.preventDefault();
   const book = new Book(title.value, author.value, pages.value, read.checked);
   myLibrary.push(book);
-  console.log(myLibrary);
+  closeForm();
   displayBooks();
 }
 
 // display myLibrary
 function displayBooks() {
-  display.innerHTML = '';
+  cardContainer.innerHTML = '';
   myLibrary.forEach(book => {
-    console.log(book.info());
     const displayBook = document.createElement('div');
-    displayBook.innerHTML = book.info();
-    display.appendChild(displayBook);
+    displayBook.className = 'card';
+    displayBook.innerHTML = `<h2 class="title">${book.title}</h2>
+    <h3 class="author">${book.author}</h3>
+    <h4 class="pages">${book.pages} pages</h4>
+    <h3 class="status">${
+      book.read
+        ? `<input type="checkbox" id="mark-read checked"</input>`
+        : `<input type="checkbox" id="mark-read"></input>`
+    } mark read</h3>
+    <div class="status-bar ${book.read ? `read` : 'not-read'}">`;
+    cardContainer.appendChild(displayBook);
   });
 }
 
+const ISOLT = new Book('In Search of Lost Time', 'Marcel Proust', 4215, true);
+myLibrary.push(ISOLT);
+const Hamlet = new Book('Hamlet', 'William Shakespeare', 104, false);
+myLibrary.push(Hamlet);
+displayBooks();
