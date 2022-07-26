@@ -9,6 +9,7 @@ const form = document.querySelector('.form-modal');
 const overlay = document.querySelector('.form-overlay');
 let myLibrary = [];
 
+
 // show form
 openFormBtn.addEventListener('click', () => form.classList.remove('hidden'));
 // close form
@@ -46,16 +47,36 @@ function displayBooks() {
     <h4 class="pages">${book.pages} pages</h4>
     <h3 class="status">${
       book.read
-        ? `<input type="checkbox" id="mark-read checked"</input>`
-        : `<input type="checkbox" id="mark-read"></input>`
+        ? `<input type="checkbox" id="mark-read" checked>`
+        : `<input type="checkbox" id="mark-read">`
     } mark read</h3>
     <div class="status-bar ${book.read ? `read` : 'not-read'}">`;
     cardContainer.appendChild(displayBook);
   });
 }
 
+
+// test books
 const ISOLT = new Book('In Search of Lost Time', 'Marcel Proust', 4215, true);
 myLibrary.push(ISOLT);
 const Hamlet = new Book('Hamlet', 'William Shakespeare', 104, false);
 myLibrary.push(Hamlet);
 displayBooks();
+
+// mark read
+const markReadBtn = document.querySelectorAll('#mark-read');
+markReadBtn.forEach(mark =>
+  addEventListener('click', e => {
+    if (e.target == mark) {
+      if (!e.target.checked) {
+        e.target.parentNode.nextSibling.nextElementSibling.classList.remove('read');
+        e.target.parentNode.nextSibling.nextElementSibling.classList.add('not-read');
+      } else if (e.target.checked) {
+        e.target.parentNode.nextSibling.nextElementSibling.classList.remove('not-read');
+        e.target.parentNode.nextSibling.nextElementSibling.classList.add('read');
+      }
+    }
+  })
+);
+
+
