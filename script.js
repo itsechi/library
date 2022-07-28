@@ -29,7 +29,7 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
- 
+
 // add book to myLibrary array
 addBtn.addEventListener('submit', addBookToLibrary);
 function addBookToLibrary(e) {
@@ -43,44 +43,41 @@ function addBookToLibrary(e) {
 // display myLibrary
 function displayBooks() {
   cardContainer.innerHTML = '';
-  myLibrary.forEach(book => {
+  myLibrary.forEach((book, i) => {
     const displayBook = document.createElement('div');
     displayBook.className = 'card';
+    displayBook.setAttribute('data-index', `${i}`);
     displayBook.innerHTML = `<h1 class="title">${book.title}</h1>
     <h2 class="author">${book.author}</h2>
     <h3 class="pages">${book.pages} pages</h3>
     <h2 class="status">${
       book.read
-        ? `<input type="checkbox" id="mark-read" checked>`
-        : `<input type="checkbox" id="mark-read">`
+        ? `<input type="checkbox" class="mark-read" checked>`
+        : `<input type="checkbox" class="mark-read">`
     } mark read</h2>
     <div class="status-bar ${book.read ? `read` : 'not-read'}">`;
     cardContainer.appendChild(displayBook);
-  });
 
-  // mark read
-  const markReadBtn = document.querySelectorAll('#mark-read');
-  markReadBtn.forEach(mark =>
-    addEventListener('click', e => {
-      if (e.target == mark) {
-        if (!e.target.checked) {
-          e.target.parentNode.nextSibling.nextElementSibling.classList.remove(
-            'read'
-          );
-          e.target.parentNode.nextSibling.nextElementSibling.classList.add(
-            'not-read'
-          );
-        } else if (e.target.checked) {
-          e.target.parentNode.nextSibling.nextElementSibling.classList.remove(
-            'not-read'
-          );
-          e.target.parentNode.nextSibling.nextElementSibling.classList.add(
-            'read'
-          );
-        }
+    // mark read
+    const markReadBtn = displayBook.querySelector('.mark-read');
+    markReadBtn.addEventListener('click', e => {
+      if (!e.target.checked) {
+        e.target.parentNode.nextSibling.nextElementSibling.classList.remove(
+          'read'
+        );
+        e.target.parentNode.nextSibling.nextElementSibling.classList.add(
+          'not-read'
+        );
+      } else if (e.target.checked) {
+        e.target.parentNode.nextSibling.nextElementSibling.classList.remove(
+          'not-read'
+        );
+        e.target.parentNode.nextSibling.nextElementSibling.classList.add(
+          'read'
+        );
       }
-    })
-  );
+    });
+  });
 }
 
 // test books
