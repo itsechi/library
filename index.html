@@ -6,17 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
   <title>Library</title>
 </head>
- 
+
 <body>
   <header>
     <h1>library</h1>
     <div class="options">
       <h2 id="open-form">+ add book</h2>
       <h2 id="delete-all">delete all</h2>
+      <h2 id="sort">sort by</h2>
+      <select id="dropdown">
+        <option value="all">all</option>
+        <option value="read">read</option>
+        <option value="not read">not read</option>
+      </select>
     </div>
   </header>
   <main>

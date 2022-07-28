@@ -59,6 +59,25 @@ function displayBooks() {
     <div class="status-bar ${book.read ? `read` : 'not-read'}">`;
     cardContainer.appendChild(displayBook);
 
+
+    // sort books
+    const dropdown = document.querySelector('#dropdown');
+    dropdown.addEventListener('change', () => {
+      if (dropdown.value === 'all') displayBook.classList.remove('hidden');
+      if (dropdown.value === 'read') {
+        displayBook.classList.remove('hidden');
+        if (!book.read) {
+          displayBook.classList.add('hidden');
+        }
+      }
+      if (dropdown.value === 'not read') {
+        displayBook.classList.remove('hidden');
+        if (book.read) {
+          displayBook.classList.add('hidden');
+        }
+      }
+    });
+
     // mark read
     const markReadBtn = displayBook.querySelector('.mark-read');
     markReadBtn.addEventListener('click', e => {
@@ -95,7 +114,7 @@ const deleteAllBtn = document.querySelector('#delete-all');
 deleteAllBtn.addEventListener('click', () => {
   myLibrary = [];
   cardContainer.innerHTML = '';
-})
+});
 
 // test books
 const ISOLT = new Book('In Search of Lost Time', 'Marcel Proust', 4215, true);
@@ -103,4 +122,3 @@ myLibrary.push(ISOLT);
 const Hamlet = new Book('Hamlet', 'William Shakespeare', 104, false);
 myLibrary.push(Hamlet);
 displayBooks();
-
