@@ -40,10 +40,15 @@ header h1 {
 header h2 {
   font-weight: 400;
   cursor: pointer;
+  margin-left: 2rem;
 }
  
 header h2:hover {
   border-bottom: 1px solid var(--font);
+}
+
+.options {
+  display: flex;
 }
 
 /* main */

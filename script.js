@@ -50,12 +50,12 @@ function displayBooks() {
     displayBook.innerHTML = `<h1 class="title">${book.title}</h1>
     <h2 class="author">${book.author}</h2>
     <h3 class="pages">${book.pages} pages</h3>
+    <span class="material-icons-outlined trash">delete</span>
     <h2 class="status">${
       book.read
         ? `<input type="checkbox" class="mark-read" checked>`
         : `<input type="checkbox" class="mark-read">`
     } mark read</h2>
-    <span class="material-icons-outlined trash">delete</span>
     <div class="status-bar ${book.read ? `read` : 'not-read'}">`;
     cardContainer.appendChild(displayBook);
 
@@ -90,9 +90,17 @@ function displayBooks() {
   });
 }
 
+// delete all books
+const deleteAllBtn = document.querySelector('#delete-all');
+deleteAllBtn.addEventListener('click', () => {
+  myLibrary = [];
+  cardContainer.innerHTML = '';
+})
+
 // test books
 const ISOLT = new Book('In Search of Lost Time', 'Marcel Proust', 4215, true);
 myLibrary.push(ISOLT);
 const Hamlet = new Book('Hamlet', 'William Shakespeare', 104, false);
 myLibrary.push(Hamlet);
 displayBooks();
+
