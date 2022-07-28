@@ -165,3 +165,10 @@ form button:hover {
 .hidden {
   display: none;
 }
+
+.material-icons-outlined {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}

@@ -55,6 +55,7 @@ function displayBooks() {
         ? `<input type="checkbox" class="mark-read" checked>`
         : `<input type="checkbox" class="mark-read">`
     } mark read</h2>
+    <span class="material-icons-outlined trash">delete</span>
     <div class="status-bar ${book.read ? `read` : 'not-read'}">`;
     cardContainer.appendChild(displayBook);
 
@@ -78,6 +79,13 @@ function displayBooks() {
         );
         myLibrary[i].read = true;
       }
+    });
+
+    // delete book
+    const deleteBtn = displayBook.querySelector('.trash');
+    deleteBtn.addEventListener('click', () => {
+      myLibrary.splice(i, 1);
+      cardContainer.removeChild(displayBook);
     });
   });
 }
