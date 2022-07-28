@@ -10,10 +10,15 @@ const overlay = document.querySelector('.form-overlay');
 let myLibrary = [];
 
 // show form
-openFormBtn.addEventListener('click', () => form.classList.remove('hidden'));
+openFormBtn.addEventListener('click', () => {
+  form.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+});
 // close form
 overlay.addEventListener('click', closeForm);
 function closeForm() {
+  overlay.classList.add('hidden');
+  deleteModal.classList.add('hidden');
   form.classList.add('hidden');
   // clear input fields
   title.value = '';
@@ -58,7 +63,6 @@ function displayBooks() {
     } mark read</h2>
     <div class="status-bar ${book.read ? `read` : 'not-read'}">`;
     cardContainer.appendChild(displayBook);
-
 
     // sort books
     const dropdown = document.querySelector('#dropdown');
@@ -110,10 +114,21 @@ function displayBooks() {
 }
 
 // delete all books
+const deleteModal = document.querySelector('.delete-modal');
 const deleteAllBtn = document.querySelector('#delete-all');
 deleteAllBtn.addEventListener('click', () => {
-  myLibrary = [];
-  cardContainer.innerHTML = '';
+  deleteModal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+
+  const confirmDelete = document.querySelector('#confirm-delete');
+  confirmDelete.addEventListener('click', () => {
+    myLibrary = [];
+    cardContainer.innerHTML = '';
+    closeForm();
+  });
+
+  const cancelDelete = document.querySelector('#cancel-delete');
+  cancelDelete.addEventListener('click', closeForm);
 });
 
 // test books

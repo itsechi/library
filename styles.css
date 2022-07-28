@@ -60,6 +60,31 @@ select {
   padding-right: 1rem;
 }
 
+.delete-modal {
+  position: absolute;
+  z-index: 2;
+  background-color: var(--card-bg);
+  width: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 1rem 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.buttons button {
+  margin: 1rem 1rem 0rem 1rem;
+}
+
 /* main */
 .card-container {
   display: flex; 
@@ -159,7 +184,7 @@ form input[type="checkbox"] {
   margin-right: 0.3rem;
 }
 
-form button {
+button {
   padding: 1rem 2rem;
   font-family: inherit;
   font-size: 1rem;
@@ -172,7 +197,7 @@ form button {
   cursor: pointer;
 }
 
-form button:hover {
+button:hover {
   background-color: #050505;
 }
 

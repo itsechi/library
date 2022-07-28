@@ -22,9 +22,18 @@
         <option value="read">read</option>
         <option value="not read">not read</option>
       </select>
+    </div>      
     </div>
   </header>
   <main>
+    <div class="delete-modal hidden">
+      <h2>Are you sure you want to delete all books from your library?</h2>
+      <div class="buttons">
+        <button id="confirm-delete">Yes</button>
+        <button id="cancel-delete">No</button>
+      </div>
+    </div>
+
     <div class="form-modal hidden">
       <form>
         <h2>add book</h2>
@@ -34,8 +43,8 @@
         <label class="checkbox-container"><input type="checkbox" id="book-status"> Mark read</label>
         <button id="add-book">Add</button>
       </form>
-      <div class="form-overlay"></div>
     </div>
+    <div class="form-overlay hidden"></div>
 
 
     <div class="card-container"></div>
