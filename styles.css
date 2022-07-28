@@ -11,6 +11,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 body {
@@ -36,15 +37,13 @@ header h1 {
   font-size: 2.5rem;
 }
 
-header h3 {
+header h2 {
   font-weight: 400;
   cursor: pointer;
-  position: relative;
 }
-
-header h3:hover {
+ 
+header h2:hover {
   border-bottom: 1px solid var(--font);
-
 }
 
 /* main */
@@ -58,20 +57,20 @@ header h3:hover {
   width: 300px; /* change later */
   margin-right: 1rem;
   padding: 1rem;
-  height: 100%; /* change later */
+  height: 155px;
   position: relative;
 }
 
-.card h2 {
+.card h1 {
   font-size: 1rem;
 }
 
-.card h3 {
+.card h2 {
   font-weight: 500;
   font-size: 1rem;
 }
 
-.card h4 {
+.card h3 {
   font-size: 0.8rem;
   font-weight: 400;
 }
@@ -129,7 +128,6 @@ form label {
   margin: 0.5rem 0;
   font-weight: 600;
   text-align: left;
-
 }
 
 form input {

@@ -8,27 +8,29 @@
   <link rel="stylesheet" href="styles.css">
   <title>Library</title>
 </head>
-
+ 
 <body>
   <header>
     <h1>library</h1>
     <div class="options">
-      <h3 id="open-form">+ add book</h3>
+      <h2 id="open-form">+ add book</h2>
     </div>
   </header>
   <main>
-    <div class="form-modal hidden"><form>
-      <h2>add book</h2>
-    <label>Title <input type="text" id="book-title"></label>
-    <label>Author <input type="text" id="book-author"></label>
-    <label>Pages <input type="number" id="book-pages"></label>
-    <label class="checkbox-container"><input type="checkbox" id="book-status"> Mark read</label>
-    <button id="add-book">Add</button>
-  </form> 
-  <div class="form-overlay"></div></div>
-      
-    
-  <div class="card-container"></div>
+    <div class="form-modal hidden">
+      <form>
+        <h2>add book</h2>
+        <label>Title <input type="text" id="book-title" required></label>
+        <label>Author <input type="text" id="book-author" required></label>
+        <label>Pages <input type="number" id="book-pages" required min="1"></label>
+        <label class="checkbox-container"><input type="checkbox" id="book-status"> Mark read</label>
+        <button id="add-book">Add</button>
+      </form>
+      <div class="form-overlay"></div>
+    </div>
+
+
+    <div class="card-container"></div>
   </main>
 
   <script src="script.js"></script>
