@@ -68,6 +68,7 @@ function displayBooks() {
         e.target.parentNode.nextSibling.nextElementSibling.classList.add(
           'not-read'
         );
+        myLibrary[i].read = false;
       } else if (e.target.checked) {
         e.target.parentNode.nextSibling.nextElementSibling.classList.remove(
           'not-read'
@@ -75,6 +76,7 @@ function displayBooks() {
         e.target.parentNode.nextSibling.nextElementSibling.classList.add(
           'read'
         );
+        myLibrary[i].read = true;
       }
     });
   });
