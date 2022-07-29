@@ -130,9 +130,3 @@ deleteAllBtn.addEventListener('click', () => {
   cancelDelete.addEventListener('click', closeForm);
 });
 
-// test books
-const ISOLT = new Book('In Search of Lost Time', 'Marcel Proust', 4215, true);
-myLibrary.push(ISOLT);
-const Hamlet = new Book('Hamlet', 'William Shakespeare', 104, false);
-myLibrary.push(Hamlet);
-displayBooks();
