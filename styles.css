@@ -31,6 +31,7 @@ header {
   align-items: center;
   padding: 1rem 2rem;
   height: 100px;
+  width: 100%;
 }
 
 header h1 {
@@ -210,4 +211,32 @@ button:hover {
   bottom: 1rem;
   right: 1rem;
   cursor: pointer;
+}
+
+
+@media (max-width: 670px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+  .options {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  header h2 {
+    margin: 0;
+  }
+  select {
+    margin: 0;
+  }
+  .card-container {
+    flex-direction: column;
+  }
+  .card {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
 }
