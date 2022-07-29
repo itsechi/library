@@ -56,11 +56,12 @@ function displayBooks() {
     <h2 class="author">${book.author}</h2>
     <h3 class="pages">${book.pages} pages</h3>
     <span class="material-icons-outlined trash">delete</span>
-    <h2 class="status">${
+    <div class="status"><label>${
       book.read
         ? `<input type="checkbox" class="mark-read" checked>`
         : `<input type="checkbox" class="mark-read">`
-    } mark read</h2>
+    } 
+    mark read</label></div>
     <div class="status-bar ${book.read ? `read` : 'not-read'}">`;
     cardContainer.appendChild(displayBook);
 
@@ -86,20 +87,18 @@ function displayBooks() {
     const markReadBtn = displayBook.querySelector('.mark-read');
     markReadBtn.addEventListener('click', e => {
       if (!e.target.checked) {
-        e.target.parentNode.nextSibling.nextElementSibling.classList.remove(
+        e.target.parentNode.parentNode.nextElementSibling.classList.remove(
           'read'
         );
-        e.target.parentNode.nextSibling.nextElementSibling.classList.add(
+        e.target.parentNode.parentNode.nextElementSibling.classList.add(
           'not-read'
         );
         myLibrary[i].read = false;
       } else if (e.target.checked) {
-        e.target.parentNode.nextSibling.nextElementSibling.classList.remove(
+        e.target.parentNode.parentNode.nextElementSibling.classList.remove(
           'not-read'
         );
-        e.target.parentNode.nextSibling.nextElementSibling.classList.add(
-          'read'
-        );
+        e.target.parentNode.parentNode.nextElementSibling.classList.add('read');
         myLibrary[i].read = true;
       }
     });
