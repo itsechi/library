@@ -38,11 +38,11 @@ header h1 {
 
 header h2 {
   font-weight: 400;
-  cursor: pointer;
   margin-left: 2rem;
 }
- 
-header h2:hover {
+
+header h2:hover:not(#sort) {
+  cursor: pointer;
   border-bottom: 1px solid var(--font);
 }
 
@@ -59,6 +59,8 @@ select {
   padding-right: 1rem;
 }
 
+
+/* delete modal */
 .delete-modal {
   position: absolute;
   z-index: 2;
@@ -84,60 +86,6 @@ select {
   margin: 1rem 1rem 0rem 1rem;
 }
 
-/* main */
-.card-container {
-  display: flex; 
-  padding: 2rem;
-}
-
-.card {
-  background-color: var(--card-bg);
-  width: 300px; /* change later */
-  margin-right: 1rem;
-  padding: 1rem;
-  height: 155px;
-  position: relative;
-}
-
-.card h1 {
-  font-size: 1rem;
-}
-
-.card h2 {
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-.card h3 {
-  font-size: 0.8rem;
-  font-weight: 400;
-}
-
-.status {
-  margin-top: 2rem;
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-.status-bar {
-  width: 50px;
-  height: 10px;
-  position: absolute;
-  top: 0;
-  right: 10%;
-}
-
-input[type="checkbox"] {
-  accent-color: var(--font);
-}
-
-.status-bar.read {
-  background-color: var(--green);
-}
-
-.status-bar.not-read {
-  background-color: var(--red);
-}
 
 /* form */
 .form-overlay {
@@ -150,7 +98,7 @@ input[type="checkbox"] {
   z-index: 1;
 }
 
-form { 
+form {
   position: absolute;
   z-index: 2;
   background-color: var(--card-bg);
@@ -206,6 +154,63 @@ button:hover {
   display: none;
 }
 
+
+/* main */
+.card-container {
+  display: flex;
+  padding: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  width: 300px;
+  /* change later */
+  margin-right: 1rem;
+  padding: 1rem;
+  height: 155px;
+  position: relative;
+}
+
+.card h1 {
+  font-size: 1rem;
+}
+
+.card h2 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.card h3 {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.status {
+  margin-top: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.status-bar {
+  width: 50px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  right: 10%;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--font);
+}
+
+.status-bar.read {
+  background-color: var(--green);
+}
+
+.status-bar.not-read {
+  background-color: var(--red);
+}
+
 .material-icons-outlined {
   position: absolute;
   bottom: 1rem;
@@ -221,20 +226,25 @@ button:hover {
     align-items: center;
     height: 200px;
   }
+
   .options {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+
   header h2 {
     margin: 0;
   }
+
   select {
     margin: 0;
   }
+
   .card-container {
     flex-direction: column;
   }
+
   .card {
     margin-bottom: 1rem;
     width: 100%;
